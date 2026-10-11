@@ -12,11 +12,14 @@ dashboard vera. Il disegno dello schermo è fatto in CSS.
 
 ## Dove sta
 
-- **Render**, Static Site `rikylab-static-page`
-  (https://rikylab-static-page.onrender.com), collegato a questo repository,
-  ramo `main`, Publish Directory `./`, nessun comando di build: un push
-  ripubblica da solo.
-- **Register.it**, zona DNS di `rikylab.it`: un record A per il dominio nudo
-  verso l'IP che Render indica in «Custom Domains», e `www` in CNAME verso
-  `rikylab-static-page.onrender.com`. I record MX della posta (info@rikylab.it)
-  restano quelli di Register.it. Il certificato HTTPS lo fa Render.
+- **GitHub Pages**, da questo repository, ramo `main`, cartella `/`: un push
+  ripubblica da solo. Il file `CNAME` dice il dominio (`rikylab.it`); `www` ci
+  arriva con un redirect di GitHub. HTTPS con «Enforce HTTPS».
+  Non Render: il piano del workspace ha due domini personalizzati in tutto, e
+  li usano gia' familydashboard e familydash-mng (11 ottobre 2026).
+- **Register.it**, zona DNS di `rikylab.it`: quattro record A del dominio nudo
+  verso GitHub (185.199.108.153, 185.199.109.153, 185.199.110.153,
+  185.199.111.153) e `www` in CNAME verso `rikyvr81.github.io`. I record MX
+  della posta (info@rikylab.it, `mail.register.it`) restano come sono.
+- Il repository e' pubblico, perche' Pages gratuito lo vuole: i commit usano
+  l'indirizzo anonimo di GitHub, non la mail personale.
