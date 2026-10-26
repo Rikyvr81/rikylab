@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RikyLab · Laboratorio di idee</title>
-<meta name="description" content="RikyLab è un laboratorio di idee: piccoli progetti nati in casa per risolvere problemi veri. FamilyDashboard è uno di questi.">
+<meta name="description" content="RikyLab è un laboratorio di idee: piccoli progetti nati in casa per risolvere problemi veri. FamilyDashboard, la casa su uno schermo, e BuildingDashboard, il condominio in tasca.">
 <meta name="theme-color" content="#07090d">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2307090d'/%3E%3Crect x='6' y='9' width='8' height='8' rx='1.5' fill='%231E88E5'/%3E%3Crect x='6' y='19' width='8' height='8' rx='1.5' fill='%23D81B60'/%3E%3Crect x='16' y='9' width='8' height='8' rx='1.5' fill='%238E24AA'/%3E%3Crect x='16' y='19' width='8' height='8' rx='1.5' fill='%23F4511E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -76,7 +76,7 @@
   /* ---------- sezioni ---------- */
   section { padding: 48px 0; border-top: 1px solid var(--linea); }
   h2 { margin: 0 0 6px; font: 400 15px var(--titoli); letter-spacing: .2em; text-transform: uppercase; color: var(--tenue); }
-  .metodo { display: grid; gap: 18px; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 26px; }
+  .metodo { display: grid; gap: 18px; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 26px; }
   .metodo div { padding: 22px; border: 1px solid var(--linea); border-radius: 14px; background: var(--pannello); }
   .metodo strong { display: block; margin-bottom: 6px; font: 700 22px var(--titoli); }
   .metodo p { margin: 0; color: var(--tenue); font-size: 16px; }
@@ -119,6 +119,36 @@
   .schermo .anelli i { width: 26px; height: 26px; border-radius: 50%; border: 3px solid var(--c); border-right-color: rgba(255, 255, 255, .12); }
   .schermo .firma { position: absolute; left: -8px; bottom: 10px; width: 5px; height: 40%; border-radius: 2px; background: linear-gradient(var(--blu), var(--viola), var(--rosa), var(--arancio)); opacity: .6; }
 
+  /* La seconda idea (26 ottobre 2026): piu' piccola, un telefono disegnato.
+     Niente dati veri: righe e quadratini, come lo schermo qui sopra. */
+  .progetto.secondo { margin-top: 64px; padding-top: 48px; border-top: 1px dashed var(--linea); }
+  .progetto.secondo h3 { font-size: 38px; }
+  .telefono {
+    justify-self: center;
+    width: min(250px, 70vw);
+    aspect-ratio: 9 / 14.5;
+    padding: 16px 14px;
+    border: 9px solid #15181d;
+    border-radius: 30px;
+    background: linear-gradient(170deg, #142233, #0b0e13 55%, #22121c);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
+    display: grid;
+    grid-template-rows: auto auto auto auto 1fr;
+    gap: 10px;
+  }
+  .telefono .testa { display: flex; align-items: center; gap: 8px; }
+  .telefono .testa svg { width: 18px; height: 24px; flex: none; }
+  .telefono .testa span { display: grid; gap: 4px; flex: 1; }
+  .telefono .riquadro { border: 1px solid rgba(255, 255, 255, .12); border-radius: 9px; padding: 9px; display: grid; gap: 6px; background: rgba(255, 255, 255, .04); }
+  .telefono .cassa { height: 10px; width: 46%; border-radius: 3px; background: var(--verde); }
+  .telefono .dato { display: flex; align-items: center; gap: 6px; }
+  .telefono .dato .riga { flex: 1; }
+  .telefono .copia { width: 10px; height: 10px; flex: none; border: 1.5px solid var(--accento); border-radius: 3px; }
+  .telefono .porte { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; align-content: end; }
+  .telefono .porte i { height: 22px; border-radius: 6px; background: rgba(255, 255, 255, .06); border-left: 3px solid var(--c); }
+  .telefono .riga { height: 5px; border-radius: 3px; background: rgba(255, 255, 255, .18); }
+  .telefono .riga.corta { width: 55%; }
+
   /* ---------- contatti ---------- */
   .contatti { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 22px; }
   .contatto {
@@ -133,6 +163,9 @@
 
   footer { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; padding: 30px 0 40px; border-top: 1px solid var(--linea); color: var(--tenue); font: 400 14px var(--titoli); letter-spacing: .06em; }
 
+  @media (max-width: 980px) {
+    .metodo { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
   @media (max-width: 820px) {
     .metodo { grid-template-columns: 1fr; }
     .progetto { grid-template-columns: 1fr; gap: 28px; }
@@ -179,24 +212,29 @@
         <div><strong>Un'idea alla volta</strong><p>Si parte da una cosa che in casa non funziona, o che si potrebbe fare meglio.</p></div>
         <div><strong>Provata davvero</strong><p>Ogni idea diventa uno strumento che si usa ogni giorno, non un prototipo nel cassetto.</p></div>
         <div><strong>Fatta per durare</strong><p>Si sistema quello che si rompe, si scrive perché, e si va avanti con la successiva.</p></div>
+        <div><strong>Fatta in casa</strong><p>Gira su un piccolo server di casa, non nel cloud di qualcun altro, con una copia cifrata fuori casa ogni notte.</p></div>
       </div>
     </section>
 
     <section id="progetti" aria-labelledby="idee">
-      <h2 id="idee">Una delle idee</h2>
+      <h2 id="idee">Le idee</h2>
       <div class="progetto">
         <div>
           <h3>Family<b>Dashboard</b></h3>
           <p class="ruolo">La casa su uno schermo</p>
           <p>Uno schermo in casa che mette insieme quello che serve alla famiglia, ogni giorno, senza dover
-            aprire un'app: gli impegni di tutti, cosa c'è a scuola, quanto si spende e quanto si consuma.</p>
+            aprire un'app: gli impegni di tutti, cosa c'è a scuola, quanto si spende e quanto si consuma.
+            Si accende la mattina con un piccolo suono di benvenuto, e quando c'è qualcosa da dire lo dice a voce.</p>
           <p>E si governa dal telefono: un impegno, una spesa o un promemoria aggiunti in un attimo, ovunque
-            ci si trovi, compaiono sullo schermo di casa senza fare altro.</p>
+            ci si trovi, compaiono sullo schermo di casa senza fare altro. Quello che si può leggere da solo,
+            lo legge da solo: il conto in banca, le bollette, una foto dell'orario di scuola o dei turni di lavoro.</p>
           <ul class="elenco">
-            <li style="--c: var(--blu)">Calendari di famiglia, ognuno col suo colore</li>
-            <li style="--c: var(--verde)">Budget del mese, con le spese che arrivano da sole</li>
-            <li style="--c: var(--giallo)">Energia: quanto costa adesso e quando conviene</li>
-            <li style="--c: var(--rosa)">Scuola, attività fisica, risultati delle partite</li>
+            <li style="--c: var(--blu)">Calendari di famiglia, ognuno col suo colore, e i turni letti da una foto</li>
+            <li style="--c: var(--verde)">Budget del mese, con le spese che arrivano da sole dal conto</li>
+            <li style="--c: var(--giallo)">Bollette lette da sole, ed energia: quanto costa adesso e quando conviene</li>
+            <li style="--c: var(--viola)">Promemoria a voce, all'ora giusta: una medicina, il bidone da esporre</li>
+            <li style="--c: var(--rosa)">Scuola, con orario e menu della mensa, e l'attività fisica di tutti</li>
+            <li style="--c: var(--arancio)">Traffico verso il lavoro, partite e Formula 1 solo quando c'è da vedere</li>
           </ul>
         </div>
         <div class="schermo" role="img" aria-label="Disegno della FamilyDashboard: un calendario a sinistra, a destra orologio e riquadri">
@@ -213,6 +251,48 @@
             <div class="box"><span class="riga"></span><span class="riga corta"></span><span class="riga"></span></div>
             <div class="box"><div class="barra"><i style="--c: var(--verde)"></i><i style="--c: var(--verde)"></i><i style="--c: var(--giallo)"></i><i style="--c: #E45C6B"></i><i style="--c: var(--giallo)"></i><i style="--c: var(--verde)"></i><i style="--c: var(--verde)"></i><i style="--c: var(--giallo)"></i></div><span class="riga corta"></span></div>
             <div class="box"><div class="anelli"><i style="--c: var(--blu)"></i><i style="--c: var(--rosa)"></i></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progetto secondo">
+        <div>
+          <h3>Building<b>Dashboard</b></h3>
+          <p class="ruolo">Il condominio in tasca</p>
+          <p>Nata dalla stessa idea, per un piccolo condominio: un'app sul telefono dove ogni famiglia vede
+            quanto deve versare, con IBAN e causale pronti da copiare, e il bilancio sempre aggiornato.
+            Niente fogli di calcolo da rincorrere, niente conti da rifare.</p>
+          <ul class="elenco">
+            <li style="--c: var(--verde)">Fatture lette da sole e divise per millesimi</li>
+            <li style="--c: var(--blu)">Versamenti riconosciuti dalla banca, senza segnarli a mano</li>
+            <li style="--c: var(--viola)">Verbali delle assemblee da leggere e firmare nell'app</li>
+            <li style="--c: var(--arancio)">Calendario delle scadenze e avvisi, nell'app e per mail</li>
+          </ul>
+        </div>
+        <div class="telefono" role="img" aria-label="Disegno di BuildingDashboard su un telefono: il palazzo, la cassa, i dati del bonifico da copiare e le sezioni">
+          <div class="testa">
+            <svg viewBox="-1 -1 24 32" aria-hidden="true">
+              <polyline points="2.6,7.4 2.6,30" fill="none" stroke="#8a94a3" stroke-width="1.2"/>
+              <polyline points="19.4,7.4 19.4,30" fill="none" stroke="#8a94a3" stroke-width="1.2"/>
+              <polyline points="1,8.5 11,0.8 21,8.5" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="8.9" y="3.7" width="4.2" height="4.2" rx=".8" fill="#5FE3FF"/>
+              <rect x="5" y="10.2" width="5" height="5" rx=".9" fill="#1E88E5"/><rect x="12" y="10.2" width="5" height="5" rx=".9" fill="#8E24AA"/>
+              <rect x="5" y="17.3" width="5" height="5" rx=".9" fill="#D81B60"/><rect x="12" y="17.3" width="5" height="5" rx=".9" fill="#F4511E"/>
+              <rect x="5" y="24.4" width="5" height="5" rx=".9" fill="#8E24AA"/><rect x="12" y="24.4" width="5" height="5" rx=".9" fill="#1E88E5"/>
+            </svg>
+            <span><span class="riga"></span><span class="riga corta"></span></span>
+          </div>
+          <div class="riquadro"><span class="riga corta"></span><span class="cassa"></span></div>
+          <div class="riquadro">
+            <span class="dato"><span class="riga"></span><i class="copia"></i></span>
+            <span class="dato"><span class="riga"></span><i class="copia"></i></span>
+            <span class="dato"><span class="riga"></span><i class="copia"></i></span>
+          </div>
+          <div class="riquadro"><span class="riga"></span><span class="riga corta"></span></div>
+          <div class="porte">
+            <i style="--c: var(--verde)"></i><i style="--c: var(--accento)"></i>
+            <i style="--c: var(--viola)"></i><i style="--c: var(--giallo)"></i>
+            <i style="--c: var(--blu)"></i><i style="--c: #C67BDB"></i>
           </div>
         </div>
       </div>
