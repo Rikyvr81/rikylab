@@ -2,8 +2,9 @@
 
 La pagina di **rikylab.it** e **www.rikylab.it**: chi siamo («laboratorio di
 idee»), le idee - FamilyDashboard, la casa su uno schermo, SecurityDashboard,
-la casa che si guarda da sola (dal 9 novembre 2026), e BuildingDashboard, il
-condominio in tasca (dal 26 ottobre 2026) - e il contatto info@rikylab.it.
+la casa che si guarda da sola, ServerDashboard, le macchine di casa sotto
+controllo (tutte e due dal 9 novembre 2026, raccontate in generale: niente
+particolari su come e' protetta la casa), e BuildingDashboard, il condominio in tasca (dal 26 ottobre 2026) - e il contatto info@rikylab.it.
 
 Un file solo, `index.html`, statico: niente build, niente JavaScript. Stile
 delle app di famiglia (scuro, Roboto Condensed da Google Fonts, i quattro

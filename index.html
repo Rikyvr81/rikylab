@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RikyLab · Laboratorio di idee</title>
-<meta name="description" content="RikyLab è un laboratorio di idee: piccoli progetti da usare nella vita di tutti i giorni. FamilyDashboard, la casa su uno schermo, SecurityDashboard, la casa che si guarda da sola, e BuildingDashboard, il condominio in tasca.">
+<meta name="description" content="RikyLab è un laboratorio di idee: piccoli progetti da usare nella vita di tutti i giorni. FamilyDashboard, la casa su uno schermo, SecurityDashboard, la casa che si guarda da sola, ServerDashboard, le macchine di casa sotto controllo, e BuildingDashboard, il condominio in tasca.">
 <meta name="theme-color" content="#07090d">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2307090d'/%3E%3Crect x='6' y='9' width='8' height='8' rx='1.5' fill='%231E88E5'/%3E%3Crect x='6' y='19' width='8' height='8' rx='1.5' fill='%23D81B60'/%3E%3Crect x='16' y='9' width='8' height='8' rx='1.5' fill='%238E24AA'/%3E%3Crect x='16' y='19' width='8' height='8' rx='1.5' fill='%23F4511E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -148,6 +148,21 @@
   .monitor .riga.corta { width: 55%; }
   .monitor .lucchetto { width: 14px; height: 11px; border: 2px solid var(--verde); border-radius: 3px; position: relative; margin-top: 5px; }
   .monitor .lucchetto::before { content: ""; position: absolute; left: 1px; top: -7px; width: 8px; height: 6px; border: 2px solid var(--verde); border-bottom: 0; border-radius: 5px 5px 0 0; }
+
+  /* ServerDashboard (9 novembre 2026): il suo marchio, il server a tre
+     cassetti coi quattro LED della famiglia, e accanto una riga di stato per
+     cassetto. Niente nomi ne' numeri. */
+  .armadio { justify-self: center; width: min(330px, 80vw); display: grid; gap: 12px; padding: 16px;
+    border: 9px solid #15181d; border-radius: 18px; background: linear-gradient(170deg, #121c2a, #0b0e13 60%, #1c1220);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .55); }
+  .armadio .cassetto { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 14px; padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, .12); border-radius: 10px; background: rgba(255, 255, 255, .04); }
+  .armadio .led { display: flex; gap: 5px; }
+  .armadio .led i { width: 9px; height: 9px; border-radius: 50%; background: var(--c); box-shadow: 0 0 6px var(--c); }
+  .armadio .stato { display: grid; gap: 6px; }
+  .armadio .barra { height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .1); overflow: hidden; }
+  .armadio .barra i { display: block; height: 100%; width: var(--w); border-radius: 3px; background: var(--verde); }
+  .armadio .riga { height: 5px; width: 60%; border-radius: 3px; background: rgba(255, 255, 255, .18); }
 
   /* La seconda idea (26 ottobre 2026): piu' piccola, un telefono disegnato.
      Niente dati veri: righe e quadratini, come lo schermo qui sopra. */
@@ -316,6 +331,24 @@
             </div>
             <div><span class="riga"></span><span class="riga corta"></span><span class="riga"></span></div>
           </div>
+        </div>
+      </div>
+
+      <div class="progetto secondo">
+        <div>
+          <h3>Server<b>Dashboard</b></h3>
+          <p class="ruolo">Le macchine di casa sotto controllo</p>
+          <p>I piccoli computer che fanno girare tutto il resto, tenuti d'occhio da una pagina sola: se sono
+            accesi, quanto lavorano, quanto sono caldi, quanta memoria e quanto disco resta.</p>
+          <ul class="elenco">
+            <li style="--c: var(--verde)">Processore, temperatura, memoria e disco a colpo d'occhio</li>
+            <li style="--c: var(--arancio)">Un avviso quando qualcosa non torna</li>
+          </ul>
+        </div>
+        <div class="armadio" role="img" aria-label="Disegno di ServerDashboard: tre cassetti di un server, ognuno con le sue luci e il suo stato">
+          <div class="cassetto"><span class="led"><i style="--c: var(--blu)"></i><i style="--c: var(--viola)"></i><i style="--c: var(--rosa)"></i><i style="--c: var(--arancio)"></i></span><span class="stato"><span class="barra"><i style="--w: 38%"></i></span><span class="riga"></span></span></div>
+          <div class="cassetto"><span class="led"><i style="--c: var(--blu)"></i><i style="--c: var(--viola)"></i><i style="--c: var(--rosa)"></i><i style="--c: var(--arancio)"></i></span><span class="stato"><span class="barra"><i style="--w: 22%"></i></span><span class="riga"></span></span></div>
+          <div class="cassetto"><span class="led"><i style="--c: var(--blu)"></i><i style="--c: var(--viola)"></i><i style="--c: var(--rosa)"></i><i style="--c: var(--arancio)"></i></span><span class="stato"><span class="barra"><i style="--w: 61%"></i></span><span class="riga"></span></span></div>
         </div>
       </div>
 
