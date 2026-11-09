@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>RikyLab · Laboratorio di idee</title>
-<meta name="description" content="RikyLab è un laboratorio di idee: piccoli progetti da usare nella vita di tutti i giorni. FamilyDashboard, la casa su uno schermo, e BuildingDashboard, il condominio in tasca.">
+<meta name="description" content="RikyLab è un laboratorio di idee: piccoli progetti da usare nella vita di tutti i giorni. FamilyDashboard, la casa su uno schermo, SecurityDashboard, la casa che si guarda da sola, e BuildingDashboard, il condominio in tasca.">
 <meta name="theme-color" content="#07090d">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2307090d'/%3E%3Crect x='6' y='9' width='8' height='8' rx='1.5' fill='%231E88E5'/%3E%3Crect x='6' y='19' width='8' height='8' rx='1.5' fill='%23D81B60'/%3E%3Crect x='16' y='9' width='8' height='8' rx='1.5' fill='%238E24AA'/%3E%3Crect x='16' y='19' width='8' height='8' rx='1.5' fill='%23F4511E'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -119,6 +119,36 @@
   .schermo .anelli i { width: 26px; height: 26px; border-radius: 50%; border: 3px solid var(--c); border-right-color: rgba(255, 255, 255, .12); }
   .schermo .firma { position: absolute; left: -8px; bottom: 10px; width: 5px; height: 40%; border-radius: 2px; background: linear-gradient(var(--blu), var(--viola), var(--rosa), var(--arancio)); opacity: .6; }
 
+  /* La SecurityDashboard (9 novembre 2026): il monitor con le sei
+     telecamere, disegnato. Niente immagini vere: scene di colore, una
+     cornice rossa per l'allarme, la fila degli eventi sotto. */
+  .monitor {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    padding: 12px;
+    border: 10px solid #15181d;
+    border-radius: 14px;
+    background: linear-gradient(160deg, #10182a, #0a0c11 60%, #1a1020);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, .55);
+    display: grid;
+    grid-template-rows: 1fr 1fr .62fr;
+    gap: 6px;
+  }
+  .monitor .fila { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; min-height: 0; }
+  .monitor .cam { position: relative; border-radius: 4px; background: var(--s); overflow: hidden; }
+  .monitor .cam::after { content: ""; position: absolute; left: 5px; bottom: 5px; width: 34%; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, .55); }
+  .monitor .cam.allarme { outline: 2px solid #E45C6B; box-shadow: 0 0 14px rgba(228, 92, 107, .55); }
+  .monitor .cam.allarme::before { content: ""; position: absolute; left: 44%; top: 30%; width: 13%; height: 46%; border: 1.5px solid #E45C6B; border-radius: 2px; }
+  .monitor .sotto { display: grid; grid-template-columns: .8fr 1.6fr .7fr; gap: 6px; min-height: 0; }
+  .monitor .sotto > div { border: 1px solid rgba(255, 255, 255, .14); border-radius: 4px; padding: 5px; display: grid; gap: 4px; align-content: start; }
+  .monitor .eventi { grid-template-columns: repeat(4, 1fr); align-content: stretch !important; }
+  .monitor .eventi i { border-radius: 3px; background: var(--s); border: 1px solid rgba(82, 225, 231, .45); }
+  .monitor .eventi i.rosso { border-color: #E45C6B; }
+  .monitor .riga { height: 4px; border-radius: 2px; background: rgba(255, 255, 255, .18); }
+  .monitor .riga.corta { width: 55%; }
+  .monitor .lucchetto { width: 14px; height: 11px; border: 2px solid var(--verde); border-radius: 3px; position: relative; margin-top: 5px; }
+  .monitor .lucchetto::before { content: ""; position: absolute; left: 1px; top: -7px; width: 8px; height: 6px; border: 2px solid var(--verde); border-bottom: 0; border-radius: 5px 5px 0 0; }
+
   /* La seconda idea (26 ottobre 2026): piu' piccola, un telefono disegnato.
      Niente dati veri: righe e quadratini, come lo schermo qui sopra. */
   .progetto.secondo { margin-top: 64px; padding-top: 48px; border-top: 1px dashed var(--linea); }
@@ -224,7 +254,8 @@
           <p class="ruolo">La casa su uno schermo</p>
           <p>Uno schermo in casa che mette insieme quello che serve alla famiglia, ogni giorno, senza dover
             aprire un'app: gli impegni di tutti, cosa c'è a scuola, quanto si spende e quanto si consuma.
-            Si accende la mattina con un piccolo suono di benvenuto, e quando c'è qualcosa da dire lo dice a voce.</p>
+            Si accende la mattina da sola, con un piccolo suono di benvenuto, e la sera si spegne;
+            dietro, le foto di famiglia. Quando c'è qualcosa da dire, lo dice a voce.</p>
           <p>Si governa dal telefono: un impegno, una spesa o un promemoria aggiunti in un attimo, ovunque
             ci si trovi, compaiono sullo schermo di casa senza fare altro. Quello che si può leggere da solo,
             lo legge da solo: il conto in banca, le bollette, una foto dell'orario di scuola o dei turni di lavoro.</p>
@@ -235,6 +266,7 @@
             <li style="--c: var(--viola)">Promemoria a voce, all'ora giusta: una medicina, il bidone da esporre</li>
             <li style="--c: var(--rosa)">Scuola, con orario e menu della mensa, e l'attività fisica di tutti</li>
             <li style="--c: var(--arancio)">Traffico verso il lavoro, partite e Formula 1 solo quando c'è da vedere</li>
+            <li style="--c: #E45C6B">Se le telecamere vedono qualcuno, lo mostra in grande e lo dice</li>
           </ul>
         </div>
         <div class="schermo" role="img" aria-label="Disegno della FamilyDashboard: un calendario a sinistra, a destra orologio e riquadri">
@@ -251,6 +283,45 @@
             <div class="box"><span class="riga"></span><span class="riga corta"></span><span class="riga"></span></div>
             <div class="box"><div class="barra"><i style="--c: var(--verde)"></i><i style="--c: var(--verde)"></i><i style="--c: var(--giallo)"></i><i style="--c: #E45C6B"></i><i style="--c: var(--giallo)"></i><i style="--c: var(--verde)"></i><i style="--c: var(--verde)"></i><i style="--c: var(--giallo)"></i></div><span class="riga corta"></span></div>
             <div class="box"><div class="anelli"><i style="--c: var(--blu)"></i><i style="--c: var(--rosa)"></i></div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="progetto secondo">
+        <div>
+          <h3>Security<b>Dashboard</b></h3>
+          <p class="ruolo">La casa che si guarda da sola</p>
+          <p>Le telecamere di casa tutte insieme su un monitor, e un piccolo computer che le guarda al posto
+            nostro: riconosce persone, auto e animali, e distingue il gatto di casa da chi non dovrebbe esserci.
+            Tutto succede in casa: le immagini non passano dal cloud di nessuno.</p>
+          <p>Di notte una persona in giardino è un allarme: il monitor si accende e mostra chi è, il telefono
+            riceve la foto e poi la clip, e lo schermo della famiglia lo dice a voce. Le clip restano, anche
+            se qualcuno porta via le telecamere. Da fuori casa si vedono solo gli eventi, mai il dal vivo.</p>
+          <ul class="elenco">
+            <li style="--c: #E45C6B">Allarmi riconosciuti in casa, con foto e clip sul telefono</li>
+            <li style="--c: var(--accento)">Le clip di ogni giorno, conservate e copiate al sicuro, cifrate</li>
+            <li style="--c: var(--verde)">L'allarme di casa a colpo d'occhio: inserito o spento, e se c'è qualcosa aperto</li>
+            <li style="--c: var(--giallo)">Le luci del giardino che si accendono se qualcuno passa al buio</li>
+            <li style="--c: var(--viola)">Il citofono che suona diventa un evento, con chi ha suonato</li>
+          </ul>
+        </div>
+        <div class="monitor" role="img" aria-label="Disegno della SecurityDashboard: sei telecamere su due file, una con un allarme, e sotto l'allarme di casa, gli eventi del giorno e lo stato del sistema">
+          <div class="fila">
+            <i class="cam" style="--s: linear-gradient(180deg, #16243a, #1d3326 55%, #12201a)"></i>
+            <i class="cam allarme" style="--s: linear-gradient(180deg, #1a2230, #2a2d33 52%, #1b1d20)"></i>
+            <i class="cam" style="--s: linear-gradient(170deg, #3a3f46, #23262b)"></i>
+          </div>
+          <div class="fila">
+            <i class="cam" style="--s: linear-gradient(180deg, #142030, #1b2e22 50%, #10180f)"></i>
+            <i class="cam" style="--s: linear-gradient(160deg, #262a31, #33363b 50%, #1c1d20)"></i>
+            <i class="cam" style="--s: linear-gradient(170deg, #4a4740, #2b2925)"></i>
+          </div>
+          <div class="sotto">
+            <div><span class="lucchetto"></span><span class="riga corta"></span></div>
+            <div class="eventi">
+              <i class="rosso" style="--s: #2a2d33"></i><i style="--s: #1d3326"></i><i style="--s: #3a3f46"></i><i style="--s: #1b2e22"></i>
+            </div>
+            <div><span class="riga"></span><span class="riga corta"></span><span class="riga"></span></div>
           </div>
         </div>
       </div>
